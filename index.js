@@ -30,7 +30,7 @@ app.use(cors({
   origin: ['https://temp-admin-silk.vercel.app' , 'https://temp-client-three.vercel.app'], // Ensure this matches your client's URL
   credentials: true
 }));
-
+app.set('trust proxy', 1);
 app.use(cookieParser())
 
 app.use(limiter);
