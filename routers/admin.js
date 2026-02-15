@@ -99,7 +99,7 @@ router.post('/api/sign', signInLimiter,async(req , res) => {
              res.cookie('token', jwtToken, {
                 httpOnly: true,
                 secure: true,      // set true in production with HTTPS
-                sameSite: 'strict', // protects against CSRF
+                sameSite: 'none', // protects against CSRF
                 maxAge: 3600000     // 1 hour
             });
 
