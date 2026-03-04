@@ -35,7 +35,7 @@ function authenticate(req, res, next) {
 }
 
 
-router.get('/api/products' ,authenticate , (req , res) => {
+router.get('/api/products'  , (req , res) => {
     Product.find()
     .then(products => res.json(products))
     .catch(err => res.status(400).json('Error: ' + err));
