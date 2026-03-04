@@ -18,6 +18,8 @@ const { body, validationResult } = require('express-validator');
 
 
 
+const jwtSecret = process.env.JWTSECRET
+
 
 function authenticate(req, res, next) {
   const token = req.cookies.token;
@@ -32,7 +34,8 @@ function authenticate(req, res, next) {
   }
 }
 
-router.get('/api/products' , (req , res) => {
+
+router.get('/api/products' ,authenticate , (req , res) => {
     Product.find()
     .then(products => res.json(products))
     .catch(err => res.status(400).json('Error: ' + err));
