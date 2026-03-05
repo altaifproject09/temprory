@@ -7,6 +7,8 @@ const prductsRoute = require("./routers/products")
 const adminroute = require('./routers/admin')
 const mediaRoute = require('./routers/media')
 const dns = require('node:dns')
+const dotenv = require('dotenv');
+dotenv.config();
 
 dns.setServers([
   '8.8.8.8',
@@ -42,6 +44,11 @@ const URI = process.env.URI
   .catch((err) => {
     console.error('❌ MongoDB connection error:', err.message);
   });
+
+
+ 
+  
+
 
 app.use(prductsRoute)
 

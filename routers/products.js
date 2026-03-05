@@ -81,6 +81,8 @@ router.post("/api/add/product" ,
             await product.save();
             res.json({ message: "Product added!", product });
         } catch (error) {
+            
+            console.log(error)
             res.status(500).json({ message: "Upload failed", error: error.message });
         }
 });
